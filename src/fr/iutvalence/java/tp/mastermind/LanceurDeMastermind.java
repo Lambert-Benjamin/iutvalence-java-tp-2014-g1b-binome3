@@ -12,6 +12,9 @@ public class LanceurDeMastermind
 	 */
 	public static void main(String[] args)
 	{
+		/**
+		 * Le motif à trouver est généré aléatoirement 
+		 */
 	System.out.println("creation de la partie");
 	Mastermind partieDeMastermind=new Mastermind();
 	System.out.println("demarrage de la partie");
