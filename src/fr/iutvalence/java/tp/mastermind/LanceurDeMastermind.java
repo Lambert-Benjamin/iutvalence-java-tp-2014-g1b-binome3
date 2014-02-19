@@ -6,7 +6,10 @@ package fr.iutvalence.java.tp.mastermind;
  */
 public class LanceurDeMastermind
 {
-	
+	/**
+	 * Fonction principale de l'application
+	 * 
+	 */
 	public static void main(String[] args)
 	{
 	System.out.println("creation de la partie");
