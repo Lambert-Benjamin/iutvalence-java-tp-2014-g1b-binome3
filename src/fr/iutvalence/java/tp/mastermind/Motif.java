@@ -9,15 +9,24 @@ package fr.iutvalence.java.tp.mastermind;
  */
 public class Motif
 {
-
+	/**
+	 * Nombre de pion par essai
+	 */
+	public final static int LARGEUR_DEFAULT = 4;
+	
+	/**
+	 * On cree un tableau pour mettre les pions d'un motif
+	 */
+	private int[] pions;
+	
 	// TODO(fait) écrire un commentaire plus précis
 	/**
-	 *Le motif est cree aleatoirement au debut de la partie
-	 *Le motif ne changera pas durant toute la partie
+	 * Creer un motif aléatoire
 	 */
 	public Motif()
 	{
 		
 	}
+	
 }
 
