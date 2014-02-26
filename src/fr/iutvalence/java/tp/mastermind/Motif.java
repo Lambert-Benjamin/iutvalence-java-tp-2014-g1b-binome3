@@ -1,18 +1,19 @@
 package fr.iutvalence.java.tp.mastermind;
 
 
-// TODO écrire un commentaire  plus précis
+// TODO (fait)écrire un commentaire  plus précis
 /**
- * Creation du motif a deviner
+ * Un motif est compose de 4 pions parmis 8 couleurs differentes
  * 
  * @author Nicolas et Benjamin
  */
 public class Motif
 {
 
-	// TODO écrire un commentaire plus précis
+	// TODO(fait) écrire un commentaire plus précis
 	/**
-	 * Mettre le motif aléatoire dans un tableau a 4 cases
+	 *Le motif est cree aleatoirement au debut de la partie
+	 *Le motif ne changera pas durant toute la partie
 	 */
 	public Motif()
 	{

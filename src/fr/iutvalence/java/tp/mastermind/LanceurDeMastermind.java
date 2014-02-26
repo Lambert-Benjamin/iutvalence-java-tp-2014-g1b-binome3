@@ -8,16 +8,17 @@ package fr.iutvalence.java.tp.mastermind;
  */
 public class LanceurDeMastermind
 {
-	// TODO compléter le commentaire
+	// TODO(fait) compléter le commentaire
 	/**
 	 * Fonction principale de l'application
-	 * 
+	 * Debut d'une partie de Mastermind
+	 * On affiche des messages pour informer l'avancement de la partie
 	 */
 	public static void main(String[] args)
 	{
-		System.out.println("creation de la partie");
+		System.out.println("Creation de la partie");
 		Mastermind partieDeMastermind = new Mastermind();
-		System.out.println("demarrage de la partie");
+		System.out.println("Demarrage de la partie");
 		partieDeMastermind.jouer();
 		System.out.println("Fin de la partie");
 	}
