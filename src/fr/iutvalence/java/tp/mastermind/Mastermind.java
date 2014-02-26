@@ -22,11 +22,7 @@ public class Mastermind
 	/**
 	 * Nombre d'essai maximum
 	 */
-	public final static int LONGUEUR_DEFAULT = 12;
-
-	// TODO (fait) corriger la déclaration (ce n'est pas une constante)
-	// TODO renommer
-
+	public final static int ESSAI_DEFAULT = 12;
 
 	// TODO (fait) écrire un commentaire 
 	/**

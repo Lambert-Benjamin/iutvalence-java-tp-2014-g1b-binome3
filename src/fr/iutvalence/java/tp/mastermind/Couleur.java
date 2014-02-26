@@ -10,6 +10,10 @@ package fr.iutvalence.java.tp.mastermind;
 public class Couleur
 {
 	/**
+	 *  On cree la couleur blanc
+	 */
+	private final static int BLANC = 0;
+	/**
 	 * On cree la couleur rouge
 	 */
 	private final static int ROUGE = 1;
@@ -37,8 +41,5 @@ public class Couleur
 	 * On cree la couleur noir
 	 */
 	private final static int NOIR = 7;
-	/**
-	 *  On cree la couleur blanc
-	 */
-	private final static int BLANC = 8;
+
 }
