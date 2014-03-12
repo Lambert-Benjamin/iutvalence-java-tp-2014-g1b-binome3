@@ -18,7 +18,7 @@ public class Mastermind
 
 
 	// TODO (fait)corriger la déclaration (ce n'est pas une constante)
-	// TODO renommer
+	// TODO (fait)renommer
 	/**
 	 * Nombre d'essai maximum
 	 */
@@ -26,9 +26,14 @@ public class Mastermind
 
 	// TODO (fait) écrire un commentaire 
 	/**
+	 * attributs
+	 */
+	public Motif motifATrouver;
+	/**
 	 * Creation d'un motif aleatoire a trouver de 4 pions de couleurs différentes
 	 * 
 	 */
+	
 	public Mastermind()
 	{
 		Motif motifATrouver = new Motif();
@@ -42,8 +47,12 @@ public class Mastermind
 	 */
 	public void jouer()
 	{
-		System.out.println("Rentre ton motif de pions:");
+		//System.out.println("Rentre ton motif de pions:");
 		Motif motifPropose = new Motif();
+		while(motifPropose != motifATrouver)
+		{
+			
+		}
 	}
 	
 }

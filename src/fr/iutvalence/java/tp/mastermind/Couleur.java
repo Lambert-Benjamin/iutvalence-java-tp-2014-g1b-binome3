@@ -7,39 +7,39 @@ package fr.iutvalence.java.tp.mastermind;
  * 
  * @author rougen
  */
-public class Couleur
+public enum Couleur
 {
 	/**
 	 *  On cree la couleur blanc
 	 */
-	private final static int BLANC = 0;
+	BLANC,
 	/**
 	 * On cree la couleur rouge
 	 */
-	private final static int ROUGE = 1;
+	ROUGE,
 	/**
 	 *   On cree la couleur bleue
 	 */
-	private final static int BLEUE = 2;
+	 BLEUE,
 	/**
 	 *  On cree la couleur jaune
 	 */
-	private final static int JAUNE = 3;
+	 JAUNE,
 	/**
 	 *  On cree la couleur vert
 	 */
-	private final static int VERT = 4;
+	 VERT,
 	/**
 	 *  On cree la couleur rose
 	 */
-	private final static int ROSE = 5;
+	 ROSE,
 	/**
 	 *  On cree la couleur violet
 	 */
-	private final static int VIOLET = 6;
+	 VIOLET,
 	/**
-	 * On cree la couleur noir
+	 * On cree la couleur orange
 	 */
-	private final static int NOIR = 7;
+	 ORANGE;
 
 }

@@ -1,5 +1,7 @@
 package fr.iutvalence.java.tp.mastermind;
 
+import java.util.Random;
+
 
 // TODO (fait)écrire un commentaire  plus précis
 /**
@@ -26,9 +28,10 @@ public class Motif
 	public Motif()
 	{
 		this.pions=new int[LARGEUR_DEFAULT];
-		
+		Random r = new Random();		
 		for (int ligne = 0 ;ligne < LARGEUR_DEFAULT; ligne++) 
-			this.pions[ligne] =  (int) Math.floor((Math.random()*7)+1);
+			this.pions[ligne] = r.nextInt(8);
+		
 	}
 	
 }
