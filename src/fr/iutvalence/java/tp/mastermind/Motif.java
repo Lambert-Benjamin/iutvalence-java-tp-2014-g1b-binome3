@@ -25,7 +25,10 @@ public class Motif
 	 */
 	public Motif()
 	{
+		this.pions=new int[LARGEUR_DEFAULT];
 		
+		for (int ligne = 0 ;ligne < LARGEUR_DEFAULT; ligne++) 
+			this.pions[ligne] =  (int) Math.floor((Math.random()*7)+1);
 	}
 	
 }
