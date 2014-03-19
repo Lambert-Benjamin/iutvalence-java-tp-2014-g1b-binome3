@@ -23,12 +23,7 @@ public class Mastermind
 	 * Nombre d'essai maximum
 	 */
 	public final static int ESSAI_DEFAULT = 12;
-
 	// TODO (fait) écrire un commentaire 
-	/**
-	 * attributs
-	 */
-	public Motif motifATrouver;
 	/**
 	 * Creation d'un motif aleatoire a trouver de 4 pions de couleurs différentes
 	 * 
@@ -48,11 +43,6 @@ public class Mastermind
 	public void jouer()
 	{
 		//System.out.println("Rentre ton motif de pions:");
-		Motif motifPropose = new Motif();
-		while(motifPropose != motifATrouver)
-		{
-			
-		}
 	}
 	
 }
