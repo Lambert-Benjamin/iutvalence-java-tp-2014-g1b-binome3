@@ -23,12 +23,20 @@ public class Mastermind
 	 * Nombre d'essai maximum
 	 */
 	public final static int ESSAI_DEFAULT = 12;
+	
 	// TODO (fait) écrire un commentaire 
 	/**
 	 * Creation d'un motif aleatoire a trouver de 4 pions de couleurs différentes
 	 * 
 	 */
-	
+	public static Motif motifATrouver;
+	/**
+	 * Le motif proposer par l'utilisateur
+	 */
+	public static Motif motifPropose;
+	/**
+	 * On cree un tableau pour mettre les pions d'un motif
+	 */
 	public Mastermind()
 	{
 		Motif motifATrouver = new Motif();

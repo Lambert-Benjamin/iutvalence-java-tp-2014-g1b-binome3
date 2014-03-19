@@ -18,14 +18,7 @@ public class Motif
 	/**
 	 *Le motif a chercher
 	 */
-	public Motif motifATrouver;
-	/**
-	 * Le motif proposer par l'utilisateur
-	 */
-	public Motif motifPropose;
-	/**
-	 * On cree un tableau pour mettre les pions d'un motif
-	 */
+
 	private int[] pions;
 	
 	// TODO(fait) écrire un commentaire plus précis
@@ -40,19 +33,22 @@ public class Motif
 			this.pions[emplacement] = r.nextInt(8);
 		
 	}
-	public void testMotif()
+	/**
+	 * 
+	 */
+	public Motif testMotif(Motif motifPropose)
 	{
-			while(motifPropose != motifATrouver)
+		while(this.motifPropose != this.motifATrouver)
+		{
+			Motif motifPropose = new Motif();
+			int compteurBienPlacer = 0;
+			int compteurMalPlacer = 0;
+			for(int emplacement = 0; emplacement<LARGEUR_DEFAULT;emplacement++)
 			{
-				Motif motifPropose = new Motif();
-				for(int emplacement = 0; emplacement<LARGEUR_DEFAULT;emplacement++)
-				{
-					if(motifPropose[emplacement]==motifATrouver[emplacement])
-						compteurBienPlacer=
-				
-					
-				}	
-			}
+				if(this.motifPropose[emplacement]==this.motifATrouver[emplacement])
+					compteurBienPlacer++;
+			}	
+		}
 	}
 }
 
