@@ -30,9 +30,9 @@ public enum Couleur
 	 */
 	 VERT,
 	/**
-	 *  On cree la couleur rose
+	 *  On cree la couleur fuchsia
 	 */
-	 ROSE,
+	 FUCHSIA,
 	/**
 	 *  On cree la couleur violet
 	 */

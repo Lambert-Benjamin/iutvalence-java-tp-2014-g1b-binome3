@@ -34,21 +34,33 @@ public class Motif
 		
 	}
 	/**
-	 * 
+	 * Fonction qui va comparer le motif a trouver et le motif proposer par l'utilisateur
+	 *@param Motif motifApropose a verifier
+	 *@return (pas défini)
 	 */
-	public Motif testMotif(Motif motifPropose)
+	public String testMotif(Motif motifAPropose)
 	{
 		while(this.motifPropose != this.motifATrouver)
 		{
 			Motif motifPropose = new Motif();
 			int compteurBienPlacer = 0;
 			int compteurMalPlacer = 0;
+			boolean[] mask ;
 			for(int emplacement = 0; emplacement<LARGEUR_DEFAULT;emplacement++)
 			{
 				if(this.motifPropose[emplacement]==this.motifATrouver[emplacement])
 					compteurBienPlacer++;
-			}	
+					
+			}
+			for(int emplacement = 0; emplacement<LARGEUR_DEFAULT;emplacement++)
+			{
+				for(int indice = 0;indice<LARGEUR_DEFAULT;indice++)
+				{
+					if()
+				}
+			}
 		}
+		
 	}
 }
 
