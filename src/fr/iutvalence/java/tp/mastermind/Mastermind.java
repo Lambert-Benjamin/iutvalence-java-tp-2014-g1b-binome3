@@ -39,8 +39,7 @@ public class Mastermind
 	 */
 	public Mastermind()
 	{
-		Motif motifATrouver = new Motif();
-		
+		Motif motifATrouver = new Motif();		
 	}
 
 	// TODO (fait) écrire un commentaire 
@@ -50,6 +49,10 @@ public class Mastermind
 	 */
 	public void jouer()
 	{
+		while(motifPropose != motifATrouver)
+		{
+			
+		}
 		//System.out.println("Rentre ton motif de pions:");
 	}
 	

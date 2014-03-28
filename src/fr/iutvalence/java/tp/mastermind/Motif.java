@@ -38,24 +38,28 @@ public class Motif
 	 * l'utilisateur
 	 * 
 	 * @param motif
-	 *            motifApropose (a verifier)
+	 *           Le motif proposer par le joueur 
+	 * @param motifAlea 
+	 * 			Le motif a trouver par le joueur
 	 * @return une chaine qui affiche les pions bien placé et mal placé par rapport
 	 * 			au motif à trouver
 	 */
-	public String testMotif(Motif motif)
+	public String testMotif(Motif motif[],Motif motifAlea[])
 	{
 		int compteurBienPlacer;
 		int compteurMalPlacer;
-		while(Mastermind.motifPropose != Mastermind.motifATrouver)
-		{
-			Motif motifPropose = new Motif();
-			compteurBienPlacer = 0;
-			compteurMalPlacer = 0;
-			boolean[] maskTrouver;
-			boolean[] maskPropose;
+		compteurBienPlacer = 0;
+		compteurMalPlacer = 0;
+		boolean[] maskTrouver=new boolean[LARGEUR_DEFAULT];
+		boolean[] maskPropose=new boolean[LARGEUR_DEFAULT];
+		for(int vrai=0;vrai<LARGEUR_DEFAULT;vrai++)
+			{
+				maskTrouver[vrai]=true;
+				maskPropose[vrai]=true;
+			}
 			for(int emplacement = 0; emplacement<LARGEUR_DEFAULT;emplacement++)
 			{
-				if(motifPropose[emplacement]==Mastermind.motifATrouver[emplacement])
+				if(motif[emplacement]==motifAlea[emplacement])
 					compteurBienPlacer++;
 					maskPropose[emplacement]=false;
 					maskTrouver[emplacement]=false;
@@ -65,13 +69,12 @@ public class Motif
 			{
 				for(int indice = 0;indice<LARGEUR_DEFAULT;indice++)
 				{
-					if((maskPropose[indice]!=false)&&(maskTrouver[emplacement]!=false)&&(Mastermind.motifATrouver[emplacement]==motifPropose[indice]))
+					if((maskPropose[indice]!=false)&&(maskTrouver[emplacement]!=false)&&(motifAlea[emplacement]==motif[indice]))
 							compteurMalPlacer++;
 							maskPropose[indice]=false;
 							maskTrouver[emplacement]=false;
 				}
 			}
-		}
-		return "Il y a "+compteurBienPlacer+" pion(s) bien placé et "+compteurMalPlacer+" pion(s) mal placé";
-	}
+	return "Il y a "+compteurBienPlacer+" pion(s) bien placé et "+compteurMalPlacer+" pion(s) mal placé";
+	}	
 }	

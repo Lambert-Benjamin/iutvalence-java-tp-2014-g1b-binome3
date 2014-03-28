@@ -13,6 +13,7 @@ public class LanceurDeMastermind
 	 * Fonction principale de l'application
 	 * Debut d'une partie de Mastermind
 	 * On affiche des messages pour informer l'avancement de la partie
+	 * @param args argument
 	 */
 	public static void main(String[] args)
 	{
