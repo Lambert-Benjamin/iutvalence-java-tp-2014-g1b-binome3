@@ -51,7 +51,8 @@ public class Mastermind
 	{
 		while(motifPropose != motifATrouver)
 		{
-			
+			Motif motifPropose = new Motif();
+			Motif.testMotif(motifPropose,motifATrouver);//entre nous c'est faux
 		}
 		//System.out.println("Rentre ton motif de pions:");
 	}

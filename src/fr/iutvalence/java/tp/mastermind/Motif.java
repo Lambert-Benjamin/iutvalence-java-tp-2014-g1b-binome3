@@ -44,7 +44,7 @@ public class Motif
 	 * @return une chaine qui affiche les pions bien placé et mal placé par rapport
 	 * 			au motif à trouver
 	 */
-	public String testMotif(Motif motif[],Motif motifAlea[])
+	public static String testMotif(Motif motif[],Motif motifAlea[])
 	{
 		int compteurBienPlacer;
 		int compteurMalPlacer;
