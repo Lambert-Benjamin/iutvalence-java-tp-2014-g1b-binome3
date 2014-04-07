@@ -13,7 +13,7 @@ public class Motif
 	/**
 	 * Nombre de pion par essai
 	 */
-	public final static int LARGEUR_DEFAULT = 4;
+	public final static int NOMBRE_DE_PIONS = 4;
 	/**
 	 * Le motif a chercher
 	 */
@@ -26,55 +26,63 @@ public class Motif
 	 */
 	public Motif()
 	{
-		this.pions = new int[LARGEUR_DEFAULT];
+		this.pions = new int[NOMBRE_DE_PIONS];
 		Random r = new Random();
-		for (int emplacement = 0; emplacement < LARGEUR_DEFAULT; emplacement++)
+		for (int emplacement = 0; emplacement < NOMBRE_DE_PIONS; emplacement++)
 			this.pions[emplacement] = r.nextInt(8);
-
 	}
 
 	/**
 	 * Fonction qui va comparer le motif a trouver et le motif proposer par
 	 * l'utilisateur
-	 * 
-	 * @param motif
-	 *           Le motif proposer par le joueur 
-	 * @param motifAlea 
-	 * 			Le motif a trouver par le joueur
-	 * @return une chaine qui affiche les pions bien placé et mal placé par rapport
-	 * 			au motif à trouver
+	 *
+	 * @param motifPropose
+	 *            Le motif a trouver par le joueur
+	 * @return une chaine qui affiche les pions bien placé et mal placé par
+	 *         rapport au motif à trouver
 	 */
-	public static String testMotif(Motif motif[],Motif motifAlea[])
+	public static String comparerMotif(Motif motifPropose)
 	{
-		int compteurBienPlacer;
-		int compteurMalPlacer;
-		compteurBienPlacer = 0;
-		compteurMalPlacer = 0;
-		boolean[] maskTrouver=new boolean[LARGEUR_DEFAULT];
-		boolean[] maskPropose=new boolean[LARGEUR_DEFAULT];
-		for(int vrai=0;vrai<LARGEUR_DEFAULT;vrai++)
+		int nombreDePionsBienPlaces = 0;
+		int nombreDePionsMalPlaces = 0;
+
+		boolean[] maskTrouver = new boolean[NOMBRE_DE_PIONS];
+		boolean[] maskPropose = new boolean[NOMBRE_DE_PIONS];
+		for (int numeroDuPion = 0; numeroDuPion < NOMBRE_DE_PIONS; numeroDuPion++)
+		{
+			maskTrouver[numeroDuPion] = true;
+			maskPropose[numeroDuPion] = true;
+		}
+		for (int numeroDuPion = 0; numeroDuPion < NOMBRE_DE_PIONS; numeroDuPion++)
+		{
+			if (Mastermind.motifADeviner.getPion(numeroDuPion) == motifPropose.getPion(numeroDuPion))
+				nombreDePionsBienPlaces++;
+			maskPropose[numeroDuPion] = false;
+			maskTrouver[numeroDuPion] = false;
+
+		}
+		for (int emplacement = 0; emplacement < NOMBRE_DE_PIONS; emplacement++)
+		{
+			for (int indice = 0; indice < NOMBRE_DE_PIONS; indice++)
 			{
-				maskTrouver[vrai]=true;
-				maskPropose[vrai]=true;
+				if ((maskPropose[indice] != false) && (maskTrouver[emplacement] != false)
+						&& (motifPropose.getPion(indice) == Mastermind.motifADeviner.getPion(emplacement)))
+					nombreDePionsMalPlaces++;
+				maskPropose[indice] = false;
+				maskTrouver[emplacement] = false;
 			}
-			for(int emplacement = 0; emplacement<LARGEUR_DEFAULT;emplacement++)
-			{
-				if(motif[emplacement]==motifAlea[emplacement])
-					compteurBienPlacer++;
-					maskPropose[emplacement]=false;
-					maskTrouver[emplacement]=false;
-					
-			}
-			for(int emplacement = 0; emplacement<LARGEUR_DEFAULT;emplacement++)
-			{
-				for(int indice = 0;indice<LARGEUR_DEFAULT;indice++)
-				{
-					if((maskPropose[indice]!=false)&&(maskTrouver[emplacement]!=false)&&(motifAlea[emplacement]==motif[indice]))
-							compteurMalPlacer++;
-							maskPropose[indice]=false;
-							maskTrouver[emplacement]=false;
-				}
-			}
-	return "Il y a "+compteurBienPlacer+" pion(s) bien placé et "+compteurMalPlacer+" pion(s) mal placé";
-	}	
-}	
+		}
+		return "Il y a " + nombreDePionsBienPlaces + " pion(s) bien placé et " + nombreDePionsMalPlaces
+				+ " pion(s) mal placé";
+	}
+	/**
+	 * Méthode qui renvoie le caractère à une position donné d'un motif
+	 * @param position
+	 * 		l'indice à l'endroit où l'on cherche l'entier
+	 * @return l'entier à la position donné du motif
+	 */
+	public int getPion(int position)
+	{
+		return this.pions[position];
+	}
+}

@@ -29,7 +29,7 @@ public class Mastermind
 	 * Creation d'un motif aleatoire a trouver de 4 pions de couleurs différentes
 	 * 
 	 */
-	public static Motif motifATrouver;
+	public static Motif motifADeviner;
 	/**
 	 * Le motif proposer par l'utilisateur
 	 */
@@ -39,7 +39,7 @@ public class Mastermind
 	 */
 	public Mastermind()
 	{
-		Motif motifATrouver = new Motif();		
+		motifADeviner = new Motif();		
 	}
 
 	// TODO (fait) écrire un commentaire 
@@ -49,10 +49,15 @@ public class Mastermind
 	 */
 	public void jouer()
 	{
-		while(motifPropose != motifATrouver)
+		System.out.println(motifADeviner);
+		System.out.println(motifPropose);
+		int essai = 0;
+		while((motifPropose != motifADeviner)&&(essai<ESSAI_DEFAULT))
 		{
 			Motif motifPropose = new Motif();
-			Motif.testMotif(motifPropose,motifATrouver);//entre nous c'est faux
+			System.out.println(motifPropose);
+			Motif.comparerMotif(motifPropose);
+			essai++;//entre nous c'est complètement faux
 		}
 		//System.out.println("Rentre ton motif de pions:");
 	}
