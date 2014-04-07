@@ -17,7 +17,6 @@ public class Motif
 	/**
 	 * Le motif a chercher
 	 */
-
 	private int[] pions;
 
 	// TODO(fait) écrire un commentaire plus précis
@@ -85,4 +84,12 @@ public class Motif
 	{
 		return this.pions[position];
 	}
+	/**
+	*
+	*/
+	public String toString()
+	{ 
+		return this.toString();
+	}
+		
 }

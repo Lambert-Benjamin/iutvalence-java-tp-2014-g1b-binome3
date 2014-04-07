@@ -49,8 +49,8 @@ public class Mastermind
 	 */
 	public void jouer()
 	{
-		System.out.println(motifADeviner);
-		System.out.println(motifPropose);
+		System.out.println(motifADeviner.toString());
+		System.out.println(motifPropose.toString());
 		int essai = 0;
 		while((motifPropose != motifADeviner)&&(essai<ESSAI_DEFAULT))
 		{
@@ -60,6 +60,5 @@ public class Mastermind
 			essai++;//entre nous c'est complètement faux
 		}
 		//System.out.println("Rentre ton motif de pions:");
-	}
-	
+	}	
 }

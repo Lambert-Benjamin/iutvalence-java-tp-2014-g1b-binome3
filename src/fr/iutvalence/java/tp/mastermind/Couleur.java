@@ -12,34 +12,34 @@ public enum Couleur
 	/**
 	 *  On cree la couleur blanc
 	 */
-	BLANC,
+	B,
 	/**
 	 * On cree la couleur rouge
 	 */
-	ROUGE,
+	R,
 	/**
 	 *   On cree la couleur bleue
 	 */
-	 BLEUE,
+	 Be,
 	/**
 	 *  On cree la couleur jaune
 	 */
-	 JAUNE,
+	 J,
 	/**
 	 *  On cree la couleur vert
 	 */
-	 VERT,
+	 V,
 	/**
 	 *  On cree la couleur fuchsia
 	 */
-	 FUCHSIA,
+	 F,
 	/**
 	 *  On cree la couleur violet
 	 */
-	 VIOLET,
+	 Vi,
 	/**
 	 * On cree la couleur orange
 	 */
-	 ORANGE;
+	 O;
 
 }
