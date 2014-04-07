@@ -50,12 +50,11 @@ public class Mastermind
 	public void jouer()
 	{
 		System.out.println(motifADeviner.toString());
-		System.out.println(motifPropose.toString());
 		int essai = 0;
 		while((motifPropose != motifADeviner)&&(essai<ESSAI_DEFAULT))
 		{
 			Motif motifPropose = new Motif();
-			System.out.println(motifPropose);
+			System.out.println(motifPropose.toString());
 			Motif.comparerMotif(motifPropose);
 			essai++;//entre nous c'est complètement faux
 		}

@@ -89,7 +89,14 @@ public class Motif
 	*/
 	public String toString()
 	{ 
-		return this.toString();
+		if(this.pions != null)
+		{
+		String resultat = "";
+		for(int pion : this.pions)
+			resultat += pion; 
+		return resultat;
+		}
+		return "";
 	}
 		
 }
