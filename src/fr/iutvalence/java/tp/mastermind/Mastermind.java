@@ -54,14 +54,14 @@ public class Mastermind
 		System.out.println(motifADeviner.toString());
 		int essai = 0;
 		while(essai<ESSAI_DEFAULT)
-		{
+		{	
 			Motif motifPropose = new Motif();
 			System.out.println(motifPropose.toString());
 			System.out.println(Motif.comparerMotif(motifPropose));
 			essai++;//entre nous c'est complètement faux
-			if(motifPropose == motifADeviner)
+			if(motifPropose == motifADeviner)//enlever l'attribut 
 				{
-					System.out.println(" Vous avez gagner en "+essai+" essai(s)");
+					System.out.println( "Vous avez gagner en "+essai+" essai(s)");
 					break;
 				}
 		}

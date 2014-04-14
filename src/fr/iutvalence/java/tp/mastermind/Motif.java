@@ -10,6 +10,7 @@ import java.util.Random;
  */
 public class Motif
 {
+
 	/**
 	 * Nombre de pion par essai
 	 */
@@ -77,7 +78,8 @@ public class Motif
 					{
 						nombreDePionsMalPlaces++;					
 						masqueDuMotifPropose[numeroDuPionDansLeMotifPropose] = false;
-						masqueDuMotifATrouver[numeroDuPionDansLeMotifATrouver] = false;		
+						masqueDuMotifATrouver[numeroDuPionDansLeMotifATrouver] = false;
+						break;
 					}
 			}
 		}
@@ -108,5 +110,9 @@ public class Motif
 		}
 		return "";
 	}
-		
+	/**
+	 * méthode qui lit le motif a deviner
+	 * @return un tableau d'entier
+	 */
+
 }
