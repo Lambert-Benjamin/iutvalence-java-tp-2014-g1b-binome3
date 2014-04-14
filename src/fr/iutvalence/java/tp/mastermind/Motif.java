@@ -45,30 +45,40 @@ public class Motif
 		int nombreDePionsBienPlaces = 0;
 		int nombreDePionsMalPlaces = 0;
 
-		boolean[] maskTrouver = new boolean[NOMBRE_DE_PIONS];
-		boolean[] maskPropose = new boolean[NOMBRE_DE_PIONS];
+		boolean[] masqueDuMotifATrouver = new boolean[NOMBRE_DE_PIONS];
+		boolean[] masqueDuMotifPropose = new boolean[NOMBRE_DE_PIONS];
+		
 		for (int numeroDuPion = 0; numeroDuPion < NOMBRE_DE_PIONS; numeroDuPion++)
 		{
-			maskTrouver[numeroDuPion] = true;
-			maskPropose[numeroDuPion] = true;
+			masqueDuMotifATrouver[numeroDuPion] = true;
+			masqueDuMotifPropose[numeroDuPion] = true;
 		}
+		
 		for (int numeroDuPion = 0; numeroDuPion < NOMBRE_DE_PIONS; numeroDuPion++)
 		{
 			if (Mastermind.motifADeviner.getPion(numeroDuPion) == motifPropose.getPion(numeroDuPion))
-				nombreDePionsBienPlaces++;
-			maskPropose[numeroDuPion] = false;
-			maskTrouver[numeroDuPion] = false;
-
-		}
-		for (int emplacement = 0; emplacement < NOMBRE_DE_PIONS; emplacement++)
-		{
-			for (int indice = 0; indice < NOMBRE_DE_PIONS; indice++)
 			{
-				if ((maskPropose[indice] != false) && (maskTrouver[emplacement] != false)
-						&& (motifPropose.getPion(indice) == Mastermind.motifADeviner.getPion(emplacement)))
-					nombreDePionsMalPlaces++;
-				maskPropose[indice] = false;
-				maskTrouver[emplacement] = false;
+				nombreDePionsBienPlaces++;
+				masqueDuMotifPropose[numeroDuPion] = false;
+				masqueDuMotifATrouver[numeroDuPion] = false;
+			}
+			
+		}
+		
+		for (int numeroDuPionDansLeMotifATrouver = 0; numeroDuPionDansLeMotifATrouver < NOMBRE_DE_PIONS; numeroDuPionDansLeMotifATrouver++)
+		{
+			if (!masqueDuMotifATrouver[numeroDuPionDansLeMotifATrouver]) continue;
+			
+			for (int numeroDuPionDansLeMotifPropose = 0; numeroDuPionDansLeMotifPropose < NOMBRE_DE_PIONS; numeroDuPionDansLeMotifPropose++)
+			{
+				if (!masqueDuMotifPropose[numeroDuPionDansLeMotifPropose]) continue;
+						
+				if (Mastermind.motifADeviner.getPion(numeroDuPionDansLeMotifATrouver) == motifPropose.getPion(numeroDuPionDansLeMotifPropose))
+					{
+						nombreDePionsMalPlaces++;					
+						masqueDuMotifPropose[numeroDuPionDansLeMotifPropose] = false;
+						masqueDuMotifATrouver[numeroDuPionDansLeMotifATrouver] = false;		
+					}
 			}
 		}
 		return "Il y a " + nombreDePionsBienPlaces + " pion(s) bien placé et " + nombreDePionsMalPlaces

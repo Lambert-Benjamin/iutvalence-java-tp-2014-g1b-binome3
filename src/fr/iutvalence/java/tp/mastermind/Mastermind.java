@@ -30,10 +30,11 @@ public class Mastermind
 	 * 
 	 */
 	public static Motif motifADeviner;
+	
 	/**
 	 * Le motif proposer par l'utilisateur
 	 */
-	public static Motif motifPropose;
+	public Motif motifPropose;
 	/**
 	 * On cree un tableau pour mettre les pions d'un motif
 	 */
@@ -49,14 +50,20 @@ public class Mastermind
 	 */
 	public void jouer()
 	{
+		System.out.print("Le motif à trouver:");
 		System.out.println(motifADeviner.toString());
 		int essai = 0;
-		while((motifPropose != motifADeviner)&&(essai<ESSAI_DEFAULT))
+		while(essai<ESSAI_DEFAULT)
 		{
 			Motif motifPropose = new Motif();
 			System.out.println(motifPropose.toString());
-			Motif.comparerMotif(motifPropose);
+			System.out.println(Motif.comparerMotif(motifPropose));
 			essai++;//entre nous c'est complètement faux
+			if(motifPropose == motifADeviner)
+				{
+					System.out.println(" Vous avez gagner en "+essai+" essai(s)");
+					break;
+				}
 		}
 		//System.out.println("Rentre ton motif de pions:");
 	}	
