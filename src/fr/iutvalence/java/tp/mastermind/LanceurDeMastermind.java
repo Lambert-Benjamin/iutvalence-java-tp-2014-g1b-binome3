@@ -8,7 +8,6 @@ package fr.iutvalence.java.tp.mastermind;
  */
 public class LanceurDeMastermind
 {
-	// TODO(fait) compléter le commentaire
 	/**
 	 * Fonction principale de l'application
 	 * Debut d'une partie de Mastermind
