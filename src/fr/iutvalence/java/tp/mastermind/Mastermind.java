@@ -23,16 +23,24 @@ public class Mastermind
 	 */
 	private final Joueur joueur;
 	
+	/**
+	 * L'affichage
+	 */
+	private final Affichage affichage;
+	
+	
 
 	/**
 	 * Création d'une nouvelle partie de Mastermind (le motif à deviner est
 	 * choisi aléatoirement)
 	 * @param joueur le joueur
+	 * @param affichage l'affichage
 	 */
-	public Mastermind(Joueur joueur)
+	public Mastermind(Joueur joueur, Affichage affichage)
 	{
 		this.motifADeviner = new Motif();
 		this.joueur = joueur;
+		this.affichage = affichage;
 	}
 
 	/**
@@ -40,23 +48,19 @@ public class Mastermind
 	 */
 	public void jouer()
 	{
-		System.out.print("Le motif à trouver:");
-		System.out.println(this.motifADeviner);
-
-		for (int essai = 1; essai <= NOMBRE_D_ESSAIS_MAXIMUM; essai++)
+		for (int numeroDuTour = 1; numeroDuTour <= NOMBRE_D_ESSAIS_MAXIMUM; numeroDuTour++)
 		{
+			// this.affichage.notifierDemandeDeMotif();
 			Motif motifPropose = this.joueur.obtenirMotif();
-			System.out.println(motifPropose);
 			ResultatComparaisonMotifs resultatComparaisonMotifs = this.motifADeviner.comparerMotif(motifPropose); 
-			System.out.println(resultatComparaisonMotifs);
+			this.affichage.notifierResultatTour(numeroDuTour, motifPropose, resultatComparaisonMotifs);
 			
 			if (resultatComparaisonMotifs.obtenirNombreDePionsBienPlaces() == Motif.NOMBRE_DE_PIONS)
 			{
-				System.out
-						.println("Gagne en " + essai + " essai(s)");
+				this.affichage.afficherVictoire(numeroDuTour);
 				return;
 			}
 		}
-		System.out.println("Perdu");
+		this.affichage.afficherDefaite(this.motifADeviner);
 	}
 }
