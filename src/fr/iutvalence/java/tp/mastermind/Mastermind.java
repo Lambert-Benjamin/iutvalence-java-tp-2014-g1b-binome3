@@ -16,15 +16,23 @@ public class Mastermind
 	/**
 	 * Le motif à deviner
 	 */
-	private Motif motifADeviner;
+	private final Motif motifADeviner;
+	
+	/**
+	 * Le joueur
+	 */
+	private final Joueur joueur;
+	
 
 	/**
 	 * Création d'une nouvelle partie de Mastermind (le motif à deviner est
 	 * choisi aléatoirement)
+	 * @param joueur le joueur
 	 */
-	public Mastermind()
+	public Mastermind(Joueur joueur)
 	{
 		this.motifADeviner = new Motif();
+		this.joueur = joueur;
 	}
 
 	/**
@@ -37,7 +45,7 @@ public class Mastermind
 
 		for (int essai = 1; essai <= NOMBRE_D_ESSAIS_MAXIMUM; essai++)
 		{
-			Motif motifPropose = new Motif();
+			Motif motifPropose = this.joueur.obtenirMotif();
 			System.out.println(motifPropose);
 			ResultatComparaisonMotifs resultatComparaisonMotifs = this.motifADeviner.comparerMotif(motifPropose); 
 			System.out.println(resultatComparaisonMotifs);
