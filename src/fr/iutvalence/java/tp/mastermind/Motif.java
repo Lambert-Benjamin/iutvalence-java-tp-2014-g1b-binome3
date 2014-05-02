@@ -19,17 +19,17 @@ public class Motif
 	/**
 	 * Les pions
 	 */
-	private int[] pions;
+	private Couleur[] pions;
 
 	/**
 	 * Creer un motif aléatoire
 	 */
 	public Motif()
 	{
-		this.pions = new int[NOMBRE_DE_PIONS];
-		Random r = new Random();
+		this.pions = new Couleur[NOMBRE_DE_PIONS];
+		Random generateurDeNombresAleatoires = new Random();
 		for (int emplacement = 0; emplacement < NOMBRE_DE_PIONS; emplacement++)
-			this.pions[emplacement] = r.nextInt(Couleur.values().length);
+			this.pions[emplacement] = Couleur.values()[generateurDeNombresAleatoires.nextInt(Couleur.values().length)];
 	}
 
 	/**
