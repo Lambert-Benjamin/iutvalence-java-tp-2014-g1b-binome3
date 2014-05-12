@@ -10,36 +10,36 @@ package fr.iutvalence.java.tp.mastermind;
 public enum Couleur
 {
 	/**
-	 *  On cree la couleur blanc
+	 *  La couleur blanc
 	 */
-	B,
+	BLANC,
 	/**
-	 * On cree la couleur rouge
+	 * La couleur rouge
 	 */
-	R,
+	ROUGE,
 	/**
-	 *   On cree la couleur bleue
+	 *   La couleur bleue
 	 */
-	 Be,
+	 BLEU,
 	/**
-	 *  On cree la couleur jaune
+	 *  La couleur jaune
 	 */
-	 J,
+	 JAUNE,
 	/**
-	 *  On cree la couleur vert
+	 *  La couleur vert
 	 */
-	 V,
+	VERT,
 	/**
-	 *  On cree la couleur fuchsia
+	 *  la couleur fuchsia
 	 */
-	 F,
+	 FUCHSIA,
 	/**
-	 *  On cree la couleur violet
+	 * la couleur violet
 	 */
-	 Vi,
+	 VIOLET,
 	/**
-	 * On cree la couleur orange
+	 * la couleur orange
 	 */
-	 O;
+	 ORANGE;
 
 }

@@ -1,70 +1,66 @@
 package fr.iutvalence.java.tp.mastermind;
 
-// TODO (fait)écrire un commentaire plus précis
 /**
- * Debut de la partie
- * La partie de Mastermind est prete a etre lancer On dispose de plusieurs
- * pions de 8 couleurs differentes Un motif de 4 pions a trouver est genere
- * aleatoirement Vous avez 12 essais pour trouver le motif.
- *  Les jetons rouges annoncent un pion de bonne couleur bien placé 
- *  Les jetons blancs annoncent un pion de bonne couleur mais mal place
- *   On ne met rien quand un pion ne fait pas partie de la combinaison 
- *   La partie se finit quand on a trouve le bon motif ou quand on n'a plus d'essais
+ * Représente une partie de MasterMind
+ * 
  * @author Nicolas et Benjamin
  */
 public class Mastermind
 {
-	// TODO (fait) déplacer le commentaire au bon endroit
 
+	/**
+	 * Nombre d'essais maximum
+	 */
+	public final static int NOMBRE_D_ESSAIS_MAXIMUM = 12;
 
-	// TODO (fait)corriger la déclaration (ce n'est pas une constante)
-	// TODO (fait)renommer
 	/**
-	 * Nombre d'essai maximum
+	 * Le motif à deviner
 	 */
-	public final static int ESSAI_DEFAULT = 12;
-	
-	// TODO (fait) écrire un commentaire 
-	/**
-	 * Creation d'un motif aleatoire a trouver de 4 pions de couleurs différentes
-	 * 
-	 */
-	public static Motif motifADeviner;
+	private final Motif motifADeviner;
 	
 	/**
-	 * Le motif proposer par l'utilisateur
+	 * Le joueur
 	 */
-	public Motif motifPropose;
+	private final Joueur joueur;
+	
 	/**
-	 * On cree un tableau pour mettre les pions d'un motif
+	 * L'affichage
 	 */
-	public Mastermind()
+	private final Affichage affichage;
+	
+	
+
+	/**
+	 * Création d'une nouvelle partie de Mastermind (le motif à deviner est
+	 * choisi aléatoirement)
+	 * @param joueur le joueur
+	 * @param affichage l'affichage
+	 */
+	public Mastermind(Joueur joueur, Affichage affichage)
 	{
-		motifADeviner = new Motif();		
+		this.motifADeviner = new Motif();
+		this.joueur = joueur;
+		this.affichage = affichage;
 	}
 
-	// TODO (fait) écrire un commentaire 
 	/**
-	 * Permet au joueur de proposer un motif à 4 pions 
-	 * On le compare avec le motif a trouver
+	 * Jouer la partie
 	 */
 	public void jouer()
 	{
-		System.out.print("Le motif à trouver:");
-		System.out.println(motifADeviner.toString());
-		int essai = 0;
-		while(essai<ESSAI_DEFAULT)
-		{	
-			Motif motifPropose = new Motif();
-			System.out.println(motifPropose.toString());
-			System.out.println(Motif.comparerMotif(motifPropose));
-			essai++;//entre nous c'est complètement faux
-			if(motifPropose == motifADeviner)//enlever l'attribut 
-				{
-					System.out.println( "Vous avez gagner en "+essai+" essai(s)");
-					break;
-				}
+		for (int numeroDuTour = 1; numeroDuTour <= NOMBRE_D_ESSAIS_MAXIMUM; numeroDuTour++)
+		{
+			// this.affichage.notifierDemandeDeMotif();
+			Motif motifPropose = this.joueur.obtenirMotif();
+			ResultatComparaisonMotifs resultatComparaisonMotifs = this.motifADeviner.comparerMotif(motifPropose); 
+			this.affichage.notifierResultatTour(numeroDuTour, motifPropose, resultatComparaisonMotifs);
+			
+			if (resultatComparaisonMotifs.obtenirNombreDePionsBienPlaces() == Motif.NOMBRE_DE_PIONS)
+			{
+				this.affichage.afficherVictoire(numeroDuTour);
+				return;
+			}
 		}
-		//System.out.println("Rentre ton motif de pions:");
-	}	
+		this.affichage.afficherDefaite(this.motifADeviner);
+	}
 }
