@@ -16,6 +16,7 @@ public class AfficherFenetre implements Runnable , Affichage
 		fenetre.setSize(200,100);
 		fenetre.setTitle("Test de Fenetre");
 		
+		
 	}
 
 	@Override
