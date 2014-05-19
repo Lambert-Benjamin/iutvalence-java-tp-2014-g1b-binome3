@@ -1,5 +1,7 @@
 package fr.iutvalence.java.tp.mastermind;
 
+import javax.swing.SwingUtilities;
+
 /**
  * Représente une partie de MasterMind
  * 
@@ -41,6 +43,7 @@ public class Mastermind
 		this.motifADeviner = new Motif();
 		this.joueur = joueur;
 		this.affichage = affichage;
+		SwingUtilities.invokeLater((Runnable)affichage);
 	}
 
 	/**
