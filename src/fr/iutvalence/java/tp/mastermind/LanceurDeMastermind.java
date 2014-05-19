@@ -1,5 +1,6 @@
 package fr.iutvalence.java.tp.mastermind;
 
+
 /**
  * Lancement de la partie de Mastermind
  * 
@@ -17,7 +18,7 @@ public class LanceurDeMastermind
 	public static void main(String[] args)
 	{
 		System.out.println("Creation de la partie");
-		Mastermind partieDeMastermind = new Mastermind(new JoueurAleatoire(), new AffichageConsole());
+		Mastermind partieDeMastermind = new Mastermind(new JoueurAleatoire(), new AfficherFenetre());
 		System.out.println("Demarrage de la partie");
 		partieDeMastermind.jouer();
 		System.out.println("Fin de la partie");

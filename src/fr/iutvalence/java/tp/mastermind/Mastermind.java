@@ -38,7 +38,7 @@ public class Mastermind
 	 * @param joueur le joueur
 	 * @param affichage l'affichage
 	 */
-	public Mastermind(Joueur joueur, Affichage affichage)
+	public Mastermind(Joueur joueur, AfficherFenetre affichage)
 	{
 		this.motifADeviner = new Motif();
 		this.joueur = joueur;

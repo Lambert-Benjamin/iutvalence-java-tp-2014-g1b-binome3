@@ -9,12 +9,19 @@ import javax.swing.JFrame;
  */
 public class AfficherFenetre implements Runnable , Affichage
 {
+	/**
+	 * fenetre principale du mastermind
+	 */
+	private JFrame fenetre;
+	
+	
 	@Override
 	public void run()
 	{
-		JFrame fenetre = new JFrame();
-		fenetre.setSize(200,100);
-		fenetre.setTitle("Test de Fenetre");
+		this.fenetre = new JFrame();
+		this.fenetre.setSize(300,200);
+		this.fenetre.setTitle("Test de Fenetre");
+		this.fenetre.setVisible(true);
 		
 		
 	}
