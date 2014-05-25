@@ -1,13 +1,17 @@
 package fr.iutvalence.java.tp.mastermind;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JSplitPane;
 import javax.swing.WindowConstants;
 
@@ -26,30 +30,43 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 	 * L'onglet A Propos du menu
 	 */
 	private JMenuItem menuItemAPropos;
+	private JMenuItem menuItemAbandonner;
+	private JMenuItem menuItemNewPartie;
 	
 	@Override
 	public void run()
 	{
 		this.fenetre = new JFrame();
-		this.fenetre.setSize(300,200);
+		this.fenetre.setSize(500,500);
 		this.fenetre.setTitle("Test de Fenetre");
 
 		this.fenetre.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
-		JSplitPane panelSimple = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-		this.fenetre.add(panelSimple);
+		GridLayout setLayout = (new GridLayout(1,4));
+		
+		
+		JSplitPane paneSimple = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		paneSimple.setVisible(true);
+		this.fenetre.add(paneSimple);
+
+
+		
+		paneSimple.setLayout(setLayout);
+		paneSimple.add(new JButton("Bouton 1"));
+		paneSimple.add(new JButton("Bouton 2"));
 		
 		JMenuBar menuBar = new JMenuBar();
 		
 		JMenu menu = new JMenu("Menu");
-		JMenuItem menuItemNewPartie = new JMenuItem("Nouvelle Partie");
-		JMenuItem menuItemAbandonner = new JMenuItem("Abandonner(comme un lÃ¢che)");
+		this.menuItemNewPartie = new JMenuItem("Nouvelle Partie");
+		this.menuItemAbandonner = new JMenuItem("Abandonner(comme un lache)");
 		this.menuItemAPropos = new JMenuItem("A Propos");
-		menu.add(menuItemNewPartie);
-		menu.add(menuItemAbandonner);
+		menu.add(this.menuItemNewPartie);
+		menu.add(this.menuItemAbandonner);
 		menu.add(this.menuItemAPropos);
 		menuItemNewPartie.addActionListener(this);
 		menuItemAbandonner.addActionListener(this);
+		menuItemAPropos.addActionListener(this);
 		menuBar.add(menu);
 		
 		JMenu niveau = new JMenu("Niveau");
@@ -101,12 +118,23 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 		
 		if (itemChoisi == this.menuItemAPropos)
 		{
-				JOptionPane.showMessageDialog(this.fenetre, "Jeu de mastermind creer par Sir SÃ¶palain et Lord KlÃ«Ã«nex","A Propos",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this.fenetre, "Jeu de mastermind creer par Sir Söpalain et Lord Klëënex","A Propos",JOptionPane.INFORMATION_MESSAGE);
 				return;
 		}
-
+		if (itemChoisi == this.menuItemAbandonner)
+		{
+	
+		if (JOptionPane.showConfirmDialog(this.fenetre, "Abandonner ?", "Confirmation", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
+		this.fenetre.dispose();
 
 		// TODO Auto-generated method stub
-		
+		}
+		if(itemChoisi == this.menuItemNewPartie)
+		{
+			if(JOptionPane.showConfirmDialog(this.fenetre, "Nouvelle Partie ?","Confirmation",JOptionPane.OK_CANCEL_OPTION ) == JOptionPane.OK_OPTION);
+			{
+				JOptionPane.showMessageDialog(this.fenetre, "Non en fait tu dois continue ta partie","Bait",JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
 	}
 }
