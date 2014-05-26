@@ -1,17 +1,19 @@
 package fr.iutvalence.java.tp.mastermind;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
 import javax.swing.JSplitPane;
 import javax.swing.WindowConstants;
 
@@ -30,31 +32,82 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 	 * L'onglet A Propos du menu
 	 */
 	private JMenuItem menuItemAPropos;
-	private JMenuItem menuItemAbandonner;
+	
+	/**
+	 * 
+	 */
+	  private JMenuItem menuItemAbandonner;
+	/**
+	 * 
+	 */
 	private JMenuItem menuItemNewPartie;
 	
+	/**
+	 * 
+	 */
+	private JButton boutonVerification;
 	@Override
 	public void run()
 	{
 		this.fenetre = new JFrame();
-		this.fenetre.setSize(500,500);
+		this.fenetre.setSize(300,200);
 		this.fenetre.setTitle("Test de Fenetre");
+		Dimension motifBouton = new Dimension(30,30);
+		Dimension taillePanel = new Dimension(100,100);
 
 		this.fenetre.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
+		JPanel panel = new JPanel();
+		panel.setSize(taillePanel);
+		this.fenetre.add(panel);
+		
+		JLabel information = new JLabel("Entrez votre motif \n");
+		panel.add(information);
+		
+		JPanel panel2 = new JPanel();
+		panel2.setSize(taillePanel);
+		panel.add(panel2);
+		
+		JButton bouton1 = new JButton();
+		bouton1.setPreferredSize(motifBouton);
+		bouton1.addActionListener(new ClicBouton());
+		JButton bouton2 = new JButton();
+		bouton2.setPreferredSize(motifBouton);
+		bouton2.addActionListener(new ClicBouton());
+		JButton bouton3 = new JButton();
+		bouton3.setPreferredSize(motifBouton);
+		bouton3.addActionListener(new ClicBouton());
+		JButton bouton4 = new JButton();
+		bouton4.setPreferredSize(motifBouton);
+		bouton4.addActionListener(new ClicBouton());
+		
+		this.boutonVerification = new JButton("confirmer");
+		this.boutonVerification.addActionListener(this);
+		
 		GridLayout setLayout = (new GridLayout(1,4));
+
 		
+		this.fenetre.setLayout(setLayout);
+		panel2.add(bouton1);
+		panel2.add(bouton2);
+		panel2.add(bouton3);
+		panel2.add(bouton4);
 		
-		JSplitPane paneSimple = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		JSplitPane verification = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		verification.setSize(taillePanel);
+		panel.add(verification);
+		verification.add(this.boutonVerification);
+		
+		JSplitPane paneSimple = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		paneSimple.setVisible(true);
 		this.fenetre.add(paneSimple);
 
 
 		
-		paneSimple.setLayout(setLayout);
-		paneSimple.add(new JButton("Bouton 1"));
-		paneSimple.add(new JButton("Bouton 2"));
-		
+
+		/**
+		 * Le menu du jeu
+		 */
 		JMenuBar menuBar = new JMenuBar();
 		
 		JMenu menu = new JMenu("Menu");
@@ -64,9 +117,9 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 		menu.add(this.menuItemNewPartie);
 		menu.add(this.menuItemAbandonner);
 		menu.add(this.menuItemAPropos);
-		menuItemNewPartie.addActionListener(this);
-		menuItemAbandonner.addActionListener(this);
-		menuItemAPropos.addActionListener(this);
+		this.menuItemNewPartie.addActionListener(this);
+		this.menuItemAbandonner.addActionListener(this);
+		this.menuItemAPropos.addActionListener(this);
 		menuBar.add(menu);
 		
 		JMenu niveau = new JMenu("Niveau");
@@ -112,13 +165,14 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 	}
 
 	@Override
+	
 	public void actionPerformed(ActionEvent event)
 	{
 		JMenuItem itemChoisi = (JMenuItem) event.getSource();
 		
 		if (itemChoisi == this.menuItemAPropos)
 		{
-				JOptionPane.showMessageDialog(this.fenetre, "Jeu de mastermind creer par Sir Söpalain et Lord Klëënex","A Propos",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this.fenetre, "Jeu de mastermind creer par Sir SÃ¶palain et Lord KlÃ«Ã«nex","A Propos",JOptionPane.INFORMATION_MESSAGE);
 				return;
 		}
 		if (itemChoisi == this.menuItemAbandonner)
@@ -137,4 +191,5 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 			}
 		}
 	}
+	
 }
