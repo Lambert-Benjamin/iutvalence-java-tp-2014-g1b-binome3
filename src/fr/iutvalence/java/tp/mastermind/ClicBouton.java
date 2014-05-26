@@ -16,48 +16,25 @@ public class ClicBouton implements ActionListener
 	 * COmpteur de clic pour changer la couleur du motif
 	 */
 	public int compteur = 0;
+	/**
+	 * Prend la valeur de la couleur du bouton
+	 */
+	public Couleur couleurMotif;
+	/**
+	 * 
+	 */
+	private final Color[] couleur = {Color.WHITE,Color.RED,Color.BLUE,Color.YELLOW, Color.GREEN,Color.PINK,Color.MAGENTA,Color.ORANGE};
 	
 	public void actionPerformed(ActionEvent event)
 	{
 
 		JButton clic = (JButton)(event.getSource());
-		 switch(this.compteur)
-		 {
-		 case 0:
-			 default:
-			 clic.setBackground(Color.WHITE);
-			 this.compteur++;
-			 break;
-		 case 1:
-			 clic.setBackground(Color.RED);
-			 this.compteur++;
-			 break;
-		 case 2:
-			 clic.setBackground(Color.BLUE);
-			 this.compteur++;
-			 break;
-		 case 3:
-			 clic.setBackground(Color.YELLOW);
-			 this.compteur++;
-			 break;
-		 case 4:
-			 clic.setBackground(Color.GREEN);
-			 this.compteur++;
-			 break;
-		 case 5:
-			 clic.setBackground(Color.PINK);
-			 this.compteur++;
-			 break;
-		 case 6:
-			 clic.setBackground(Color.MAGENTA);
-			 this.compteur++;
-			 break;
-		 case 7:
-			 clic.setBackground(Color.ORANGE);
-			 this.compteur = 0;
-			 break;
+		clic.setBackground(this.couleur[this.compteur]);
+		this.couleurMotif = Couleur.values()[this.compteur];
+		if (this.compteur < 7)
+		this.compteur++;
+		else this.compteur=0;
+		
 			 
-		 }
-
 	}
 }

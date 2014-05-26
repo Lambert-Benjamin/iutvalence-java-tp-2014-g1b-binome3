@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -46,6 +46,11 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 	 * 
 	 */
 	private JButton boutonVerification;
+	
+	public JButton bouton1;
+	public JButton bouton2;
+	public JButton bouton3;
+	public JButton bouton4;
 	@Override
 	public void run()
 	{
@@ -68,30 +73,30 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 		panel2.setSize(taillePanel);
 		panel.add(panel2);
 		
-		JButton bouton1 = new JButton();
-		bouton1.setPreferredSize(motifBouton);
-		bouton1.addActionListener(new ClicBouton());
-		JButton bouton2 = new JButton();
-		bouton2.setPreferredSize(motifBouton);
-		bouton2.addActionListener(new ClicBouton());
-		JButton bouton3 = new JButton();
-		bouton3.setPreferredSize(motifBouton);
-		bouton3.addActionListener(new ClicBouton());
-		JButton bouton4 = new JButton();
-		bouton4.setPreferredSize(motifBouton);
-		bouton4.addActionListener(new ClicBouton());
+		this.bouton1 = new JButton();
+		this.bouton1.setPreferredSize(motifBouton);
+		this.bouton1.addActionListener(new ClicBouton());
+		this.bouton2 = new JButton();
+		this.bouton2.setPreferredSize(motifBouton);
+		this.bouton2.addActionListener(new ClicBouton());
+		this.bouton3 = new JButton();
+		this.bouton3.setPreferredSize(motifBouton);
+		this.bouton3.addActionListener(new ClicBouton());
+		this.bouton4 = new JButton();
+		this.bouton4.setPreferredSize(motifBouton);
+		this.bouton4.addActionListener(new ClicBouton());
 		
 		this.boutonVerification = new JButton("confirmer");
-		this.boutonVerification.addActionListener(this);
+		this.boutonVerification.addActionListener(new ConfirmationBouton());
 		
 		GridLayout setLayout = (new GridLayout(1,4));
 
 		
 		this.fenetre.setLayout(setLayout);
-		panel2.add(bouton1);
-		panel2.add(bouton2);
-		panel2.add(bouton3);
-		panel2.add(bouton4);
+		panel2.add(this.bouton1);
+		panel2.add(this.bouton2);
+		panel2.add(this.bouton3);
+		panel2.add(this.bouton4);
 		
 		JSplitPane verification = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		verification.setSize(taillePanel);
@@ -101,7 +106,7 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 		JSplitPane paneSimple = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		paneSimple.setVisible(true);
 		this.fenetre.add(paneSimple);
-
+		
 
 		
 
@@ -187,9 +192,9 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 		{
 			if(JOptionPane.showConfirmDialog(this.fenetre, "Nouvelle Partie ?","Confirmation",JOptionPane.OK_CANCEL_OPTION ) == JOptionPane.OK_OPTION);
 			{
-				JOptionPane.showMessageDialog(this.fenetre, "Non en fait tu dois continue ta partie","Bait",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this.fenetre, "Non en fait tu dois continuer ta partie","Bait",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
-	
+
 }
