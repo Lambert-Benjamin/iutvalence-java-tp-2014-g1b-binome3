@@ -46,19 +46,31 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 	 * 
 	 */
 	private JButton boutonVerification;
-	
+	/**
+	 * Premiere couleur du motif
+	 */
 	public JButton bouton1;
-	public JButton bouton2;
+	/**
+	 * Deuxieme couleur du motif
+	 */
+	public JButton bouton2;	
+	/**
+	 * Troisieme couleur du motif
+	 */
 	public JButton bouton3;
+	/**
+	 * Quatrieme couleur du motif
+	 */
 	public JButton bouton4;
+	
 	@Override
 	public void run()
 	{
 		this.fenetre = new JFrame();
-		this.fenetre.setSize(300,200);
+		this.fenetre.setSize(500,500);
 		this.fenetre.setTitle("Test de Fenetre");
-		Dimension motifBouton = new Dimension(30,30);
-		Dimension taillePanel = new Dimension(100,100);
+		Dimension motifBouton = new Dimension(100,100);
+		Dimension taillePanel = new Dimension(500,500);
 
 		this.fenetre.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
@@ -103,9 +115,10 @@ public class AfficherFenetre implements Runnable , Affichage , ActionListener
 		panel.add(verification);
 		verification.add(this.boutonVerification);
 		
-		JSplitPane paneSimple = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		JSplitPane paneSimple = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		paneSimple.setVisible(true);
-		this.fenetre.add(paneSimple);
+		paneSimple.setSize(taillePanel);
+		verification.add(paneSimple);
 		
 
 		

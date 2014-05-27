@@ -30,6 +30,7 @@ public class ClicBouton implements ActionListener
 
 		JButton clic = (JButton)(event.getSource());
 		clic.setBackground(this.couleur[this.compteur]);
+		clic.setText(""+Couleur.values()[this.compteur]+"");
 		this.couleurMotif = Couleur.values()[this.compteur];
 		if (this.compteur < 7)
 		this.compteur++;

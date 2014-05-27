@@ -8,7 +8,7 @@ import javax.swing.JButton;
 /**
  * 
  * @author rougen
- *
+ *CLasse qui enregistre le motif selectionner par le joueur et le compare avec le motif à trouver
  */
 
 public class ConfirmationBouton implements ActionListener
@@ -17,6 +17,6 @@ public class ConfirmationBouton implements ActionListener
 	public void actionPerformed(ActionEvent event)
 	{
 		JButton confirmer = (JButton)(event.getSource());
-		Couleur[] = new Couleur;
+		this.confirmationJoueur = new Couleur[];
 	}
 }
